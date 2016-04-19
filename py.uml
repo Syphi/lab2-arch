@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/ponchik/PycharmProjects/untitled1/Contreller.py</OriginalElement>
+  <nodes>
+    <node x="719.0" y="192.0">Contreller.database</node>
+    <node x="1251.0" y="192.0">Pickle_mod.PickleMethod</node>
+    <node x="149.0" y="192.0">Module.delete</node>
+    <node x="818.75" y="0.0">_collections_abc.Hashable</node>
+    <node x="502.0" y="192.0">Module.create_method</node>
+    <node x="304.0" y="192.0">Module.edit_method</node>
+    <node x="1697.0" y="192.0">Yaml_mod.YamlMethod</node>
+    <node x="1128.0" y="192.0">View.main</node>
+    <node x="0.0" y="192.0">Module.Geter</node>
+    <node x="911.0" y="192.0">Contreller.ViewMethod</node>
+    <node x="869.25" y="81.0">object</node>
+    <node x="1482.0" y="192.0">Json_mod.JsonMethod</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Pickle_mod.PickleMethod" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="1356.5" y="152.0" />
+      <point x="926.25" y="152.0" />
+      <point x="19.0" y="15.5" />
+    </edge>
+    <edge source="object" target="_collections_abc.Hashable">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Contreller.database" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="805.0" y="172.0" />
+      <point x="903.45" y="172.0" />
+      <point x="-3.7999999999999545" y="15.5" />
+    </edge>
+    <edge source="Yaml_mod.YamlMethod" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="1795.5" y="132.0" />
+      <point x="941.45" y="132.0" />
+      <point x="34.200000000000045" y="15.5" />
+    </edge>
+    <edge source="Contreller.ViewMethod" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="1009.5" y="172.0" />
+      <point x="911.05" y="172.0" />
+      <point x="3.7999999999999545" y="15.5" />
+    </edge>
+    <edge source="Json_mod.JsonMethod" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="1579.5" y="142.0" />
+      <point x="933.8499999999999" y="142.0" />
+      <point x="26.59999999999991" y="15.5" />
+    </edge>
+    <edge source="Module.Geter" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="64.5" y="132.0" />
+      <point x="873.05" y="132.0" />
+      <point x="-34.200000000000045" y="15.5" />
+    </edge>
+    <edge source="View.main" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="1179.5" y="162.0" />
+      <point x="918.6500000000001" y="162.0" />
+      <point x="11.400000000000091" y="15.5" />
+    </edge>
+    <edge source="Module.delete" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="216.5" y="142.0" />
+      <point x="880.65" y="142.0" />
+      <point x="-26.600000000000023" y="15.5" />
+    </edge>
+    <edge source="Module.create_method" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="600.5" y="162.0" />
+      <point x="895.85" y="162.0" />
+      <point x="-11.399999999999977" y="15.5" />
+    </edge>
+    <edge source="Module.edit_method" target="object">
+      <point x="0.0" y="-15.5" />
+      <point x="393.0" y="152.0" />
+      <point x="888.25" y="152.0" />
+      <point x="-19.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.613166144200627" x="947.0" y="230.07252747252744" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+

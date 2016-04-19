@@ -26,6 +26,7 @@ class database():
         delete().delete_operation(op_id, sign, summary, dd, mm, yy, comment, Operation_History)
 
 class ViewMethod:
+
     def __init__(self):
         self.geter = Geter()
         self.Operation_History = self.geter.get_dict(0, 0, 0, 0, 0, 0, 0, {})
@@ -179,5 +180,5 @@ class ViewMethod:
             :return:
 
             """
-            op_balance = self.difference()
+            op_balance = self.balance_difference()
             print("You'r balance = " + str(op_balance))

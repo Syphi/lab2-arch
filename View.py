@@ -38,4 +38,5 @@ class main:
             print("\n Not right number!!")
             self.menu()
 
-main().menu()
+p=main()
+p.menu()
