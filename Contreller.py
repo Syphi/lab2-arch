@@ -212,7 +212,7 @@ class Console(ViewMethod):
         """
         parser = argparse.ArgumentParser(
             prog='lab3',
-            description='''Lab 3 incoming calculate''',
+            description='''Lab 3 accounting application''',
             epilog='''(c) Ralko D., Shmiryov A. 2016 KPI'''
         )
 
@@ -238,6 +238,8 @@ class Console(ViewMethod):
         :param params:
         :return:
         """
+        self.message(params)
+        self.message(namespace)
         if '-s' in params or '--show' in params:
             self.show_method()
         if '-a' in params or '--add' in params:
@@ -262,7 +264,7 @@ class Console(ViewMethod):
         if len(namespace.add) < 6:
             self.message('Wrong number of arguments')
             return
-        self.database.create(0,namespace.add[0], namespace.add[1], namespace.add[2], namespace.add[3], namespace.add[4],
+        self.database.create(0, namespace.add[0], namespace.add[1], namespace.add[2], namespace.add[3], namespace.add[4],
                              namespace.add[5], {})
 
     def del_operation(self, namespace):

@@ -1,1 +1,1 @@
-[{"dd": "1", "sign": "-", "mm": "1", "yy": "1", "comment": "1", "summary": "1"}, {"dd": "1", "sign": "+", "mm": "1", "yy": "1", "comment": "1", "summary": "100"}]
+[{"sign": "+", "mm": 1, "comment": "salary", "dd": 16, "yy": 2016, "summary": 200}, {"sign": "+", "mm": 3, "comment": "debt", "dd": 8, "yy": 2016, "summary": 35}, {"sign": "-", "mm": 5, "comment": "B'day", "dd": 16, "yy": 2016, "summary": 1500}]
