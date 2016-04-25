@@ -1,4 +1,7 @@
 from Module import *
+import configparser
+import sys
+import argparse
 
 class database():
 
@@ -41,7 +44,7 @@ class ViewMethod:
         i = 0
         for i in range(len(self.Operation_History)):
             if self.Operation_History[i]['sign'] == '+':
-                plus += self.Operation_History[i]['summary']
+                plus += int(self.Operation_History[i]['summary'])
         return plus
 
     def balance_minus(self):
@@ -54,7 +57,7 @@ class ViewMethod:
         minus = 0
         for i in range(len(self.Operation_History)):
             if self.Operation_History[i]['sign'] == '-':
-                minus += self.Operation_History[i]['summary']
+                minus += int(self.Operation_History[i]['summary'])
         return minus
 
     def balance_difference(self):
@@ -182,3 +185,114 @@ class ViewMethod:
             """
             op_balance = self.balance_difference()
             print("You'r balance = " + str(op_balance))
+
+    @staticmethod
+    def message(mess):
+        """
+            show message for user
+            :return:
+        """
+        print(mess)
+
+
+class Console(ViewMethod):
+
+    def __init__(self):
+        self.geter = Geter()
+        self.Operation_History = self.geter.get_dict(0, 0, 0, 0, 0, 0, 0, {})
+        self.database = database()
+        parser = self.create_parser()
+        namespace = parser.parse_args(sys.argv[1:])
+        self.parser_analyze(namespace, sys.argv[1:])
+
+    def create_parser(self):
+        """
+        Creating parser
+        :return:
+        """
+        parser = argparse.ArgumentParser(
+            prog='lab3',
+            description='''Lab 3 incoming calculate''',
+            epilog='''(c) Ralko D., Shmiryov A. 2016 KPI'''
+        )
+
+        parser.add_argument('-a', '--add', nargs='+',
+                            help='Adding new operation in format "Sign" "Summary" "Day" "Mounth" "Year" "Comment"')
+        parser.add_argument('-d', '--delete', help='Deleting operation in format "Id"')
+        parser.add_argument('-s', '--show', action='store_const', const=True, default=False,
+                            help='Showing all operations')
+        parser.add_argument('-u', '--update', nargs='+', help='Updating operation')
+        parser.add_argument('-p', '--positive',action='store_const', const=True, default=False,
+                            help='Showing positive balance')
+        parser.add_argument('-n', '--negative',action='store_const', const=True, default=False,
+                            help='Showing negative balance')
+        parser.add_argument('-r', '--result',action='store_const', const=True, default=False,
+                            help='Show you summary balance')
+
+        return parser
+
+    def parser_analyze(self, namespace, params):
+        """
+        Analyzing keys
+        :param namespace:
+        :param params:
+        :return:
+        """
+        if '-s' in params or '--show' in params:
+            self.show_method()
+        if '-a' in params or '--add' in params:
+            self.new_operation(namespace)
+        if '-d' in params or '--delete' in params:
+            self.del_operation(namespace)
+        if '-u' in params or '--update' in params:
+            self.upd_opetarion(namespace)
+        if '-p' in params or '--positive' in params:
+            self.menu_balance_plus()
+        if '-n' in params or '--negative' in params:
+            self.menu_balance_minus()
+        if '-r' in params or '--result' in params:
+            self.menu_balance_all()
+
+    def new_operation(self, namespace):
+        """
+            Adding new product to file
+            :param namespace:
+            :return:
+            """
+        if len(namespace.add) < 6:
+            self.message('Wrong number of arguments')
+            return
+        self.database.create(0,namespace.add[0], namespace.add[1], namespace.add[2], namespace.add[3], namespace.add[4],
+                             namespace.add[5], {})
+
+    def del_operation(self, namespace):
+        """
+        Deleting product from file
+        :param namespace:
+        :return:
+        """
+        id = int(namespace.delete)
+        from DataBase import Operation_History
+        self.database.delete(id, 0, 0, 0, 0, 0, 0, Operation_History)
+        self.message('Deleted.')
+
+
+    def upd_opetarion(self, namespace):
+        """
+        Updating product in file
+        :param namespace:
+        :return:
+        """
+        if len(namespace.update) < 7:
+            self.message('Wrong number of arguments')
+            return
+        id = int(namespace.update[0])
+        sign = namespace.update[1]
+        summary = namespace.update[2]
+        day = namespace.update[3]
+        mounth = namespace.update[4]
+        year = namespace.update[5]
+        comment = namespace.update[6]
+        from DataBase import Operation_History
+        self.database.edit_all(id, sign, summary, day, mounth, year, comment, Operation_History)
+        self.message('Updated.')

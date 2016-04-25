@@ -38,5 +38,10 @@ class main:
             print("\n Not right number!!")
             self.menu()
 
-p=main()
-p.menu()
+if __name__ == "__main__":
+    if config['DEFAULT']['ControllerType'] == 'default':
+        main().menu()
+    elif config['DEFAULT']['ControllerType'] == 'console':
+        console_work = Console()
+    else:
+        print('Wrong controller type')
